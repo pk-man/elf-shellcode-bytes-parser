@@ -4,6 +4,10 @@ import sys
 from elftools.elf.elffile import ELFFile
 
 if __name__ == '__main__':
+	
+	if len(sys.argv) > 2 or len(sys.argv) == 1:
+		print 'Usage: %s <file>' % sys.argv[0]
+	
 	with open(sys.argv[1], 'rb') as stream:
 		elffile = ELFFile(stream)
 		section = elffile.get_section_by_name(b'.text')
